@@ -15,7 +15,7 @@ export default class CreateProductService { // serviço manipula um repositorio,
     lovers,
     sellPrice,
     tags,
-  }: Product): Product {// retorna um produto 
+  }: Product): Product {// retorna um produto
     const product = this.repository.findByCode(code);// vamos definir o que a função faz
     if (product) {
       throw Error('Produto já cadastrado');
@@ -32,4 +32,5 @@ export default class CreateProductService { // serviço manipula um repositorio,
       return p;
     }
   }
+
 }

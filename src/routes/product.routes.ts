@@ -36,4 +36,8 @@ productRouter.post('/', (request, response) => {
   }
 });
 
+productRouter.put('/', (request,response)=>{
+
+})
+
 export default productRouter;

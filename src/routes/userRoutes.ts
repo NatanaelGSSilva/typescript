@@ -25,4 +25,15 @@ userRouter.post('/', (request, response) => {
   }
 });
 
+userRouter.put('/:id', (request,response) => {
+  try {
+    const id = request.params.id;
+    const { nome, email, tags, } = request.body;
+    const user = userRepository.update(id, nome, email, tags);
+    return response.status(200).json(user);
+  } catch (error) {
+    return response.status(400).json({ Erro: error.message});
+  }
+});
+
 export default userRouter;

@@ -23,6 +23,13 @@ userRouter.post('/', (request, response) => {
   } catch (error) {
     return response.status(400).json({ Erro: error.message });
   }
+  userRouter.delete('/:id', (request, response) => {
+    try {
+      const { id } = request.body;
+      return response.json(userRepository.delete(id));
+    } catch (error) {
+      return response.status(400).json({ Erro: error.message });
+    }
 });
 
 userRouter.put('/:id', (request,response) => {

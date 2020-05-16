@@ -18,6 +18,16 @@ import User from '../models/User';
   public findByEmail(email: string): User | undefined{
     return this.users.find(value => value.email === email);
   }
+  public delete(id: string): Array<user> {
+    const index = this.users.findIndex(obj => obj.id === id);
+
+    if (index === -1) {
+      throw Error(`Não foi encontrado um ticket com o id ${id}`);
+    }
+
+    this.user.splice(index, 1);
+    return this.user;
+  }
 
   public update(id: string, nome: string, email: string, tags: Array<User>): User | undefined {
     let user = this.users.find(value => value.id == id);

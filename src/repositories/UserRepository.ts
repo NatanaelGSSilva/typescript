@@ -19,6 +19,19 @@ import User from '../models/User';
     return this.users.find(value => value.email === email);
   }
 
+  public update(id: string, nome: string, email: string, tags: Array<User>): User | undefined {
+    let user = this.users.find(value => value.id == id);
+    if(user) {
+      user.nome = nome;
+      user.email = email;
+      user.tags = tags ? tags : [];
+      return user;
+    } else {
+      throw Error('Usuário não encontrado :(');
+    }
+
+  }
+
   public save({// vai receber o que do produto, eu peguei esses carinhas do meu produto
     nome,
     email,
